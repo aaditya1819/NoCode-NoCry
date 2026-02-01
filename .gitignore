@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.dist/
+dist/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Database
+prisma/dev.db
+prisma/dev.db-journal
+generated/
