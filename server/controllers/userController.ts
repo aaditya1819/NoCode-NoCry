@@ -161,6 +161,9 @@ export const paymentRazorpay = async (req: Request, res: Response) => {
             receipt: transaction.id
         };
 
+        if (!razorpayInstance) {
+            return res.status(500).json({ message: "Razorpay is not configured on this server." });
+        }
         const order = await razorpayInstance.orders.create(options);
         return res.json({ success: true, order });
 
@@ -180,6 +183,9 @@ export const verifyRazorpay = async (req: Request, res: Response) => {
         const generated_signature = hmac.digest('hex');
 
         if (generated_signature === razorpay_signature) {
+            if (!razorpayInstance) {
+                return res.status(500).json({ message: "Razorpay is not configured on this server." });
+            }
             const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
             const transactionId = orderInfo.receipt;
 
