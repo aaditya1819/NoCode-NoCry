@@ -33,7 +33,7 @@ export default function AuthPage() {
               label: 'text-gray-300 text-xs font-semibold mb-1 ml-1',
               link: 'text-indigo-400 hover:text-indigo-300 transition-colors font-medium',
               footer: 'text-gray-400 text-sm mt-6 border-t border-gray-800/50 pt-6'
-            }}
+            } as any}
           />
         </div>
 
