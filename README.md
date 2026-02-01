@@ -1,6 +1,8 @@
 # NoCode NoCry 🚀
 **Generate professional, high-performance websites from a single prompt.**
 
+[**Live Demo »**](https://no-code-no-cry.vercel.app/)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/aadityadhanwate)
 
@@ -92,7 +94,7 @@ VITE_RAZORPAY_KEY_ID="your_razorpay_id"
 ---
 
 ## 🚀 Usage
-1. Open your browser to `http://localhost:5173`.
+1. Open your browser to [https://no-code-no-cry.vercel.app/](https://no-code-no-cry.vercel.app/).
 2. Sign up or login to receive your initial credits.
 3. Type a prompt (e.g., *"Create a coffee shop website with a dark theme and animation"*).
 4. Use the sidebar chat to request changes (e.g., *"Change the hero button to red"*).
