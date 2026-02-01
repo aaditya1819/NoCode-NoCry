@@ -58,12 +58,19 @@ app.use((err: any, req: any, res: any, next: any) => {
     res.status(500).json({ message: err.message || "Internal Server Error" });
 });
 
-// FORCE PROCESS TO STAY ALIVE
-setInterval(() => {
-    // console.log("💓 Heartbeat...");
-}, 30000);
+// FORCE PROCESS TO STAY ALIVE (Not needed on Vercel, but keeping for local)
+if (process.env.NODE_ENV !== 'production') {
+    setInterval(() => {
+        // console.log("💓 Heartbeat...");
+    }, 30000);
+}
 
-app.listen(port, () => {
-    console.log(`🚀 Server is listening on http://localhost:${port}`);
-    console.log("🟢 Ready for requests!");
-});
+// Only listen if not running as a Vercel function
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`🚀 Server is listening on http://localhost:${port}`);
+        console.log("🟢 Ready for requests!");
+    });
+}
+
+export default app;
