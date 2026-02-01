@@ -31,6 +31,7 @@ export const makeRevision = async (req: Request, res: Response) => {
             // Interactive generation
             const aiResponse = await generateWebsiteCode(combinedPrompt, false);
             const { explanation, code } = aiResponse;
+            console.log("✅ Received Code Length:", code.length);
 
             const cleanCode = code.replace(/```[a-z]*\n?/gi, '').replace(/```$/g, '').trim();
 
@@ -109,7 +110,7 @@ export const getPublishedProjects = async (req: Request, res: Response) => {
 export const getProjectById = async (req: Request, res: Response) => {
     try {
         const { projectId } = req.params;
-        const project = await prisma.websiteProject.findFirst({ where: { id: projectId } });
+        const project = await prisma.websiteProject.findFirst({ where: { id: projectId as string } });
         if (!project || !project.current_code) return res.status(404).json({ message: "Project not found" });
         return res.json({ code: project.current_code });
     } catch (error: any) {
