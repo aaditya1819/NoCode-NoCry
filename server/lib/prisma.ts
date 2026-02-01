@@ -18,7 +18,7 @@ pool.on('error', (err) => {
     console.error('Unexpected error on idle client', err);
 });
 
-const adapter = new PrismaPg({ connectionString })
+const adapter = new PrismaPg(pool)
 const prisma = new PrismaClient({ adapter })
 
 export default prisma 
